@@ -16,3 +16,8 @@ body {
   align-items: center;
   background-color: var(--first-cor)
 }
+
+span {
+  backface-visibility: hidden;
+  will-change: transform;
+}

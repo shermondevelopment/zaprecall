@@ -18,29 +18,29 @@ const CardQuestion = ({ title, question, answer }) => {
             </div>
         }
 
-        {!viewQuestion &&
           <>
-            <div className="front-card">
+            {!viewResponse && 
+              <div className="front-card">
               {(!viewQuestion && !viewResponse) && <span>{question}</span>}
               {!viewQuestion && !viewResponse &&
               <button className="button-play girar" onClick={() => setViewResponse(true)}>
                 <img src="/assets/img/girar.svg" alt="play" />
               </button>
               }
-            </div>
+              </div>
+            }
         
             <div className="back-card">
-              {viewResponse && <span>{answer}</span>}
+              <span>{answer}</span>
               {viewResponse &&
               <div className="types-of-answer">
-                <button className="button-answer error">Não lembrei</button>
+                <button className="button-answer error" onClick={() => alert('ola')}>Não lembrei</button>
                 <button className="button-answer warning">Quase não lembrei</button>
                 <button className="button-answer sucess">Zap!</button>
               </div> 
               }
             </div>
           </>
-        }
       </div>
     </div>
   )
