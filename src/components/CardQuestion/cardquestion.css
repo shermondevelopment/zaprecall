@@ -1,0 +1,101 @@
+.card {
+  perspective: 1000px;
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  width: 300px;
+  height: 65px;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  background-color: #fff;
+  margin-top: 25px;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.initial-card {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  color:#333333;
+  font-weight: 700;
+  font-size: 16px;
+  user-select: none;
+  transform-style: preserve-3d;
+}
+.button-play {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 30;
+}
+.show-question {
+  align-items: flex-start;
+  height: 130px;
+  background-color: var(--second-cor);
+}
+
+.girar {
+  align-self: end;
+}
+.types-of-answer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button-answer {
+  width: 85px;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.error {
+  background-color: #FF3030;
+}
+.warning {
+  background-color: #FF922E;
+}
+.sucess {
+  background: #2FBE34;
+}
+
+.card-effect {
+	transform: rotateY(180deg);
+  transition: transform 0.3s;
+}
+
+.front-card{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+.front-card, .back-card{
+	position: absolute;
+  top: 0;
+  left: 0;
+	width: 100%;
+  padding: 15px;
+	height: 100%;
+}

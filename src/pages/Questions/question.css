@@ -1,0 +1,23 @@
+.questions {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-question {
+  width: 255px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.header-question-logo {
+  width: 52px;
+}
+
+.header-question-title {
+  color: #fff;
+  font-size: 36px;
+  
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Home from './pages/Home'
+import QuestionPage from './pages/Questions'
 
 const App = () => {
 
@@ -8,6 +9,7 @@ const App = () => {
   return (
     <>
       {pageHomeEnable && <Home stateHome={setPageHome} />}
+      {!pageHomeEnable && <QuestionPage />}
     </>
   )
 }
