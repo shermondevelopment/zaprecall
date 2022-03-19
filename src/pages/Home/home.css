@@ -1,0 +1,20 @@
+.home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: max-content;
+}
+
+.home-logo {
+  width: 136px;
+  margin: auto;
+}
+
+.title-home {
+  text-align: center;
+  font-family: 'Righteous', cursive;
+  font-weight: 400;
+  font-size: 36px;
+  color: #fff;
+  margin: 25px 0 30px 0;
+}

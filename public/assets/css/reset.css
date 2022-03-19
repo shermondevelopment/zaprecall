@@ -1,0 +1,17 @@
+* {
+  padding:0;
+  margin: 0;
+  font-family: 'Recursive', sans-serif;
+}
+
+:root {
+  --first-cor: #FB6B6B;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--first-cor)
+}
