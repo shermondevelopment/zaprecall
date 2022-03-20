@@ -1,39 +1,61 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './cardquestion.css'
 
-const CardQuestion = ({ title, question, answer, countAnswers, defineResult, setIconState, iconState }) => {
+const CardQuestion = ({ title, question, answer, countAnswers, defineResult, setIconState, iconState, reset }) => {
 
   const [viewQuestion, setViewQuestion] = useState(true)
   const [viewResponse, setViewResponse] = useState(false)
+  const [statusAnswers, setStatusAnswers] = useState({ enabled: false, type: 'warning', icon: '', acertos: 0, erros: 0, warning: 0 });
 
   const spinCard = () => {
-    defineResult(countAnswers + 1)
     setViewResponse(true)
   }
 
   const notRemember = () => {
     setIconState([...iconState, '❌'])
+    setStatusAnswers({ ...statusAnswers, enabled: true, type: 's-error', icon: '❌',  erros: statusAnswers.erros + 1})
+    defineResult(countAnswers + 1)
+    setViewQuestion(true)
   }
 
   const almostRemembered = () => {
     setIconState([...iconState, '❔'])
+    setViewQuestion(true)
+    defineResult(countAnswers + 1)
+    setStatusAnswers({ ...statusAnswers, enabled: true, type: 's-warning', icon: '❔', warning: statusAnswers.warning + 1 })
   }
+
   const right = () => {
     setIconState([...iconState, '✅'])
+    setViewQuestion(true)
+    defineResult(countAnswers + 1)
+    setStatusAnswers({ ...statusAnswers, enabled: true, type: 's-success', icon: '✅', acertos: statusAnswers.acertos + 1 })
   }
+  
+  useEffect(() => {
+    setViewQuestion(true)
+    setViewResponse(false)
+    setStatusAnswers({ enabled: false, type: 'warning', icon: '', acertos: 0, erros: 0, warning: 0 })
+  }, [reset])
 
   return (
     <div className="card">
-      <div className={`card-container ${!viewQuestion ? 'show-question' : ''} ${viewResponse && 'card-effect'}`}>
+      <div className={`card-container ${!viewQuestion ? 'show-question' : ''} ${viewResponse && !viewQuestion && 'card-effect'}`}>
         {viewQuestion && 
           <div class="initial-card">
-              <span className="card-title">{title}</span>
-              <button className="button-play" onClick={() => setViewQuestion(false)}>
-                <img src="/assets/img/play.svg" alt="play" />
-              </button>
-            </div>
+              <span className={`card-title ${statusAnswers.enabled && statusAnswers.type }`}>{title}</span>
+              {!statusAnswers.enabled && 
+                <button className="button-play" onClick={() => setViewQuestion(false)}>
+                 <img src="/assets/img/play.svg" alt="play" />
+               </button>
+              }
+              {statusAnswers.enabled && 
+                <button className="button-play">
+                  {statusAnswers.icon}
+                </button>
+              }
+          </div>
         }
-
           <>
             {!viewResponse && 
               <div className="front-card">
@@ -45,8 +67,9 @@ const CardQuestion = ({ title, question, answer, countAnswers, defineResult, set
               }
               </div>
             }
-        
-            <div className="back-card">
+           
+            {!viewQuestion &&
+              <div className="back-card">
               <span>{answer}</span>
               {viewResponse &&
               <div className="types-of-answer">
@@ -56,6 +79,7 @@ const CardQuestion = ({ title, question, answer, countAnswers, defineResult, set
               </div> 
               }
             </div>
+            }
           </>
       </div>
     </div>

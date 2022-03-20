@@ -99,3 +99,19 @@
   padding: 15px;
 	height: 100%;
 }
+
+.s-error, .s-warning, .s-success {
+  text-decoration: line-through;
+}
+
+.s-error {
+  color: #FF3030;
+  text-decoration: line-through;
+}
+.s-warning {
+ color: #FF922E;
+}
+
+.s-success {
+  color: #2FBE34;
+}
