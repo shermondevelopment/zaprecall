@@ -54,7 +54,7 @@ const QuestionPage = ({ hiddenPage, deck }) => {
             </span>
            </>
           }
-          {error !== 0 && countAnswers === 5 &&
+          {error !== 0 && countAnswers === Decks[deck].length &&
            <>
             <span className="puts">
               😵😵😵 Puts...
