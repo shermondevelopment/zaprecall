@@ -2,19 +2,20 @@ import { useState, useEffect } from 'react'
 import CardQuestion from '../../components/CardQuestion'
 import './question.css'
 
-const QuestionPage = () => {
+const QuestionPage = ({ hiddenPage }) => {
 
   const [countAnswers, setCountAnswers] = useState(0)
   const [iconsState, setIconsState] = useState([])
   const [reset, setReset] = useState(false)
-  const [hits, setHits] = useState([])
-  const [doubt, setDoubt] = useState([])
+  const [, setHits] = useState([])
+  const [, setDoubt] = useState([])
   const [error, setError] = useState([])
 
   const resetCall = () => {
     setCountAnswers(0)
     setIconsState([])
     setReset(true);
+    hiddenPage(true)
   }
 
   useEffect(() => {

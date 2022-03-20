@@ -5,11 +5,13 @@ import QuestionPage from './pages/Questions'
 const App = () => {
 
   const [pageHomeEnable, setPageHome] = useState(true)
+  const [chosenDesk, setChosenDeck] = useState('0')
+
 
   return (
     <>
-      {pageHomeEnable && <Home stateHome={setPageHome} />}
-      {!pageHomeEnable && <QuestionPage />}
+      {pageHomeEnable && <Home stateHome={setPageHome} deckOption={setChosenDeck} />}
+      {!pageHomeEnable && <QuestionPage hiddenPage={setPageHome} />}
     </>
   )
 }
