@@ -7,8 +7,14 @@ const Decks = {
     {question: "Usamos props para __", answer: "passar diferentes informações para componentes"},
     {question: "Usamos props para __", answer: "passar diferentes informações para componentes"},
     {question: "Usamos props para __", answer: "passar diferentes informações para componentes"},
+    {question: "Usamos props para __", answer: "passar diferentes informações para componentes"},
+    {question: "Usamos props para __", answer: "passar diferentes informações para componentes"},
   ],
   "css3": [
+    {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
+    {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
+    {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
+    {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
     {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
     {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
     {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
@@ -21,6 +27,10 @@ const Decks = {
     {question: "Pra server html5?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
     {question: "Pra server html5?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
     {question: "Pra server html5?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
+    {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
+    {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
+    {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
+    {question: "Pra server css?", answer: "JSX é uma sintaxe para escrever HTML dentro do JS"},
   ]
 }
 

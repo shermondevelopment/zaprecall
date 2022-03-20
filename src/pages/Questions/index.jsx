@@ -69,7 +69,9 @@ const QuestionPage = ({ hiddenPage, deck }) => {
           <div className="icons">
             {iconsState.map( (icon, index) => <span key={index}>{icon}</span> )}
           </div>
-          <button className="reset-cards" onClick={resetCall}>REINICIAR RECALL</button>
+          {Decks[deck].length === countAnswers && 
+            <button className="reset-cards" onClick={resetCall}>REINICIAR RECALL</button>
+          }
         </div>
       </div>
     </div>
