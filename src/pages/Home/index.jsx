@@ -23,10 +23,10 @@ const Home = ({ stateHome, deckOption }) => {
       <form className="form" onSubmit={(e) => handleSubmit(e)}>
 
           <select className={`input-meta ${step === 1 && 'none'}`} onChange={(e) => setDeck(e.currentTarget.value)}>
-            <option value="1">Escolha seu Deck</option>
-            <option value="1">Javascript</option>
-            <option value="2">HTML5</option>
-            <option value="3">CSS3</option>
+            <option value="javascript">Escolha seu Deck</option>
+            <option value="javascript">Javascript</option>
+            <option value="html5">HTML5</option>
+            <option value="css3">CSS3</option>
           </select>
         
         {step === 1 && 

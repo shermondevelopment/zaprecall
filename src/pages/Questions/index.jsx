@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import CardQuestion from '../../components/CardQuestion'
+import Decks from '../../decks'
 import './question.css'
 
-const QuestionPage = ({ hiddenPage }) => {
+const QuestionPage = ({ hiddenPage, deck }) => {
 
   const [countAnswers, setCountAnswers] = useState(0)
   const [iconsState, setIconsState] = useState([])
@@ -17,6 +18,8 @@ const QuestionPage = ({ hiddenPage }) => {
     setReset(true);
     hiddenPage(true)
   }
+
+  console.log(Decks, Decks[deck])
 
   useEffect(() => {
     const calculateEvaluation = () => {
@@ -34,15 +37,14 @@ const QuestionPage = ({ hiddenPage }) => {
         <img src="/assets/img/lightning.svg" className="header-question-logo" alt="zap" />
         <h1 className="header-question-title">ZapRecall</h1>
       </div>
-      <CardQuestion title="Pergunta 1" question="O que é JSX?" answer="JSX é uma sintaxe para escrever HTML dentro do JS" defineResult={setCountAnswers} countAnswers={countAnswers} setIconState={setIconsState} iconState={iconsState} reset={reset}/>
-      <CardQuestion title="Pergunta 2" question="O que é JSX?" answer="JSX é uma sintaxe para escrever HTML dentro do JS" defineResult={setCountAnswers} countAnswers={countAnswers} setIconState={setIconsState} iconState={iconsState} reset={reset}/>
-      <CardQuestion title="Pergunta 3" question="O que é JSX?" answer="JSX é uma sintaxe para escrever HTML dentro do JS" defineResult={setCountAnswers} countAnswers={countAnswers} setIconState={setIconsState} iconState={iconsState} reset={reset}/>
-      <CardQuestion title="Pergunta 4" question="O que é JSX?" answer="JSX é uma sintaxe para escrever HTML dentro do JS" defineResult={setCountAnswers} countAnswers={countAnswers} setIconState={setIconsState} iconState={iconsState} reset={reset}/>
-      <CardQuestion title="Pergunta 5" question="O que é JSX?" answer="JSX é uma sintaxe para escrever HTML dentro do JS" defineResult={setCountAnswers} countAnswers={countAnswers} setIconState={setIconsState} iconState={iconsState} reset={reset}/>
+      {Decks[deck].map( (item, index) => {
+          return <CardQuestion key={index} title={`Pergunta ${index + 1}`} question={item.question} answer={item.answer} defineResult={setCountAnswers} countAnswers={countAnswers} setIconState={setIconsState} iconState={iconsState} reset={reset}/>
+      } )}
+      
       <div className="question-progress">
         <div className="status"> 
           {/* Caso não esqueça nenhum card */}
-          {error === 0 && countAnswers === 5 &&
+          {error === 0 && countAnswers === Decks[deck].length  &&
            <>
             <span className="parabens">
               🎉🎉🎈🎈 Parabéns!
@@ -63,9 +65,9 @@ const QuestionPage = ({ hiddenPage }) => {
             </span>
            </>
           }
-          <span>{countAnswers}/5 CONCLUÍDOS</span>
+          <span>{countAnswers}/{Decks[deck].length} CONCLUÍDOS</span>
           <div className="icons">
-            {iconsState.map( icon => <span>{icon}</span> )}
+            {iconsState.map( (icon, index) => <span key={index}>{icon}</span> )}
           </div>
           <button className="reset-cards" onClick={resetCall}>REINICIAR RECALL</button>
         </div>

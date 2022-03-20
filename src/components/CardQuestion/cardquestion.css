@@ -48,6 +48,7 @@
   align-self: end;
 }
 .types-of-answer {
+  margin-top: 25px;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -86,7 +87,6 @@
 .back-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }

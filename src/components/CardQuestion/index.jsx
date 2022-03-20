@@ -42,7 +42,7 @@ const CardQuestion = ({ title, question, answer, countAnswers, defineResult, set
     <div className="card">
       <div className={`card-container ${!viewQuestion ? 'show-question' : ''} ${viewResponse && !viewQuestion && 'card-effect'}`}>
         {viewQuestion && 
-          <div class="initial-card">
+          <div className="initial-card">
               <span className={`card-title ${statusAnswers.enabled && statusAnswers.type }`}>{title}</span>
               {!statusAnswers.enabled && 
                 <button className="button-play" onClick={() => setViewQuestion(false)}>

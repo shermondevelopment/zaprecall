@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
       {pageHomeEnable && <Home stateHome={setPageHome} deckOption={setChosenDeck} />}
-      {!pageHomeEnable && <QuestionPage hiddenPage={setPageHome} />}
+      {!pageHomeEnable && <QuestionPage hiddenPage={setPageHome} deck={chosenDesk} />}
     </>
   )
 }
